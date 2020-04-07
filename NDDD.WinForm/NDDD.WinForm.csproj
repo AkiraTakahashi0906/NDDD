@@ -54,6 +54,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\LatestViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -76,5 +79,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NDDD.Domain\NDDD.Domain.csproj">
+      <Project>{415bacc3-c24c-4152-ae4d-0bf76315f2af}</Project>
+      <Name>NDDD.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NDDD.Infrastructure\NDDD.Infrastructure.csproj">
+      <Project>{c5b54e29-147d-4e56-a6ad-d12eb7be92ab}</Project>
+      <Name>NDDD.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

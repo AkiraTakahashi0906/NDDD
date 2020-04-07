@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NDDD.Domain
+namespace NDDD.Domain.Repositories
 {
-    public class Class1
+    public interface IUserRepository
     {
+        UserEntity GetUser();
     }
 }
