@@ -11,8 +11,8 @@ namespace NDDD.Infrastructure.SqlServer
         static SqlServerHelper()
         {
             var builder = new SqlConnectionStringBuilder();
-            builder.DataSource = @"ANDERSON-PC\SQLEXPRESS";
-            builder.InitialCatalog = "NDDD100";
+            builder.DataSource = @"DESKTOP-8B0KCU1\SQLEXPRESS";
+            builder.InitialCatalog = "DDD2";
             builder.IntegratedSecurity = true;
             ConnectionString = builder.ConnectionString;
         }

@@ -41,7 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Fake\MeasureFake.cs" />
+    <Compile Include="Fake\UserFake.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLServer\SQLServerHelper.cs" />
   </ItemGroup>

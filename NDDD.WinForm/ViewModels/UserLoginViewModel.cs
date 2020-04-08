@@ -55,6 +55,7 @@ namespace NDDD.WinForm.ViewModels
         public void Search()
         {
             _user = _userRepository.GetUserData();
+            base.OnPropertyChanged();
         }
     }
 }

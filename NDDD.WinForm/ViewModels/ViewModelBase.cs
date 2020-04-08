@@ -32,8 +32,8 @@ namespace NDDD.WinForm.ViewModels
         public void OnPropertyChanged()
         {
             PropertyChanged.Invoke(
-                this,
-                new PropertyChangedEventArgs(""));
+                this,//通知しているオブジェクト
+                new PropertyChangedEventArgs(""));//変更通知の引数クラス　すべてのプロパティを指定するときは空文字
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using NDDD.WinForm.ViewModels;
+﻿using NDDD.Infrastructure.Fake;
+using NDDD.WinForm.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +14,7 @@ namespace NDDD.WinForm.Views
 {
     public partial class UserLoginView : Form
     {
-        private UserLoginViewModel _viewModel = new UserLoginViewModel();
+        private UserLoginViewModel _viewModel = new UserLoginViewModel(new UserFake());
         public UserLoginView()
         {
             InitializeComponent();
