@@ -1,5 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
+using NDDD.Domain.Entities;
+using NDDD.Domain.Repositories;
 using NDDD.WinForm.ViewModels;
 
 namespace NDDDTest.Tests.ViewModelTests
@@ -10,7 +13,14 @@ namespace NDDDTest.Tests.ViewModelTests
         [TestMethod]
         public void シナリオ()
         {
-            var vm = new LatestViewModel();
+            var entity = new MeasureEntity(
+                1,
+                Convert.ToDateTime("2012/12/12 12:34:56"),
+                12.341f
+                );
+            var mesureMock = new Mock<IMeasureRepository>();
+            mesureMock.Setup(x => x.GetLatest()).Returns(entity);
+            var vm = new LatestViewModel(mesureMock.Object);
             //エリアID
             //計測日時
             //計測値

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NDDD.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace NDDD.Domain.Repositories
 {
     public interface IUserRepository
     {
-        UserEntity GetUser();
+        UserEntity GetUserData();
     }
 }

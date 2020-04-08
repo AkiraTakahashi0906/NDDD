@@ -1,5 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
+using NDDD.Domain.Entities;
+using NDDD.Domain.Repositories;
 using NDDD.WinForm.ViewModels;
 
 namespace NDDDTest.Tests.ViewModelTests
@@ -10,12 +13,21 @@ namespace NDDDTest.Tests.ViewModelTests
         [TestMethod]
         public void シナリオ()
         {
-            var vm = new UserViewModel();
+            var entity = new UserEntity(
+                1,
+                "高橋彬",
+                "043527"
+                );
+
+            var UserMock = new Mock<IUserRepository>();
+            UserMock.Setup(x => x.GetUserData()).Returns(entity);
+
+            var vm = new UserLoginViewModel(UserMock.Object);
             //ユーザーID
             //ユーザー名
             //パスワード
             vm.Search();
-            vm.UserIdText.Is("1");
+            vm.UserIdText.Is("0001");
             vm.UserNameText.Is("高橋彬");
             vm.UserLoginPasswordText.Is("043527");
 
