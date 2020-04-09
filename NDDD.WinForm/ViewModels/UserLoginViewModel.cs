@@ -1,5 +1,6 @@
 ﻿using NDDD.Domain.Entities;
 using NDDD.Domain.Repositories;
+using NDDD.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,15 @@ namespace NDDD.WinForm.ViewModels
     public class UserLoginViewModel : ViewModelBase
     {
         private IUserRepository _userRepository;
-        private UserEntity _user;
+
+        private string _userIdText;
+        private string _userNameText;
+        private string _userLoginPassword;
+
+        public UserLoginViewModel()
+            :this(Factories.CreateUser())
+        {
+        }
 
         public UserLoginViewModel(IUserRepository userRepository)
         {
@@ -20,42 +29,35 @@ namespace NDDD.WinForm.ViewModels
 
         public string UserIdText
         {
-            get
+            get { return _userIdText; }
+            set
             {
-                if (_user == null)
-                {
-                    return string.Empty;
-                }
-                return _user.UserId.ToString().PadLeft(4, '0');
+                SetProperty(ref _userIdText, value);
             }
         }
         public string UserNameText
         {
-            get
+            get { return _userNameText; }
+            set
             {
-                if (_user == null)
-                {
-                    return string.Empty;
-                }
-                return _user.UserName.ToString();
+                SetProperty(ref _userNameText, value);
             }
         }
         public string UserLoginPasswordText
         {
-            get
+            get { return _userLoginPassword; }
+            set
             {
-                if (_user == null)
-                {
-                    return string.Empty;
-                }
-                return _user.UserLoginPassword.ToString();
+                SetProperty(ref _userLoginPassword, value);
             }
         }
 
         public void Search()
         {
-            _user = _userRepository.GetUserData();
-            base.OnPropertyChanged();
+            var user = _userRepository.GetUserData();
+            UserIdText= user.UserId.ToString().PadLeft(4, '0');
+            UserNameText= user.UserName.ToString();
+            UserLoginPasswordText= user.UserLoginPassword.ToString();
         }
     }
 }

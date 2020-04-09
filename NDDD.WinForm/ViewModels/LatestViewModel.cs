@@ -1,5 +1,6 @@
 ﻿using NDDD.Domain.Entities;
 using NDDD.Domain.Repositories;
+using NDDD.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,19 @@ namespace NDDD.WinForm.ViewModels
     public class LatestViewModel : ViewModelBase
     {
         private IMeasureRepository _measureRepository;
-        private MeasureEntity _measure;
 
+        //プライベート変数は頭に_をつける
+        private string _areaIdText = string.Empty;
+        private string _measureDateText = string.Empty;
+        private string _measureValueText = string.Empty;
+
+        //コンストラクタに指定がなければ本番コード->ファクトリーが四べれてから下のコンストラクタが走る
+        public LatestViewModel()
+            :this(Factories.CreateMeasure())
+        {
+        }
+
+        //テストコードの場合はこちらが走る
         public LatestViewModel(IMeasureRepository measureRepository)
         {
             _measureRepository = measureRepository;
@@ -20,42 +32,35 @@ namespace NDDD.WinForm.ViewModels
 
         public string AreaIdText
         {
-            get
+            get { return _areaIdText; }
+            set
             {
-                if (_measure == null)
-                {
-                    return string.Empty;
-                }
-                return _measure.AreaId.ToString().PadLeft(4, '0');
+                SetProperty(ref _areaIdText, value);
             }
         }
         public string MeasureDateText
         {
-            get
+            get { return _measureDateText; }
+            set
             {
-                if (_measure == null)
-                {
-                    return string.Empty;
-                }
-                return _measure.MeasureDate.ToString("yyyy/MM/dd HH:mm:ss");
+                SetProperty(ref _measureDateText, value);
             }
         }
         public string MeasureValueText
         {
-            get
+            get { return _measureValueText; }
+            set
             {
-                if (_measure == null)
-                {
-                    return string.Empty;
-                }
-                return Math.Round(_measure.MeasureValue, 2) + "℃";
+                SetProperty(ref _measureValueText, value);
             }
         }
 
         public void Search()
         {
-            _measure = _measureRepository.GetLatest();
-            base.OnPropertyChanged();
+            var measure = _measureRepository.GetLatest();
+            AreaIdText = measure.AreaId.ToString().PadLeft(4, '0');
+            MeasureDateText = measure.MeasureDate.ToString("yyyy/MM/dd HH:mm:ss");
+            MeasureValueText = Math.Round(measure.MeasureValue, 2) + "℃";
         }
     }
 }

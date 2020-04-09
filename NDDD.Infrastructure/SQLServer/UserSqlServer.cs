@@ -6,17 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NDDD.Infrastructure.Fake
+namespace NDDD.Infrastructure.SQLServer
 {
-    internal sealed class UserFake : IUserRepository
+    //internalにしてファクトリークラスからしかNEWできないようにする。
+    internal sealed class UserSqlServer : IUserRepository
     {
         public UserEntity GetUserData()
         {
-            return  new UserEntity(
-                        1,
-                        "高橋彬",
-                        "043527"
-                        );
+            throw new NotImplementedException();
         }
     }
 }
