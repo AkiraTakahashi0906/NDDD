@@ -9,6 +9,6 @@ namespace NDDD.Domain.Repositories
 {
     public interface IUserRepository
     {
-        UserEntity GetUserData();
+        UserEntity GetUserData(int userId);
     }
 }

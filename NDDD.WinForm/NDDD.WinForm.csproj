@@ -51,11 +51,23 @@
     <Compile Include="ViewModels\LatestViewModel.cs" />
     <Compile Include="ViewModels\UserLoginViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Views\BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\LatestView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\LatestView.Designer.cs">
       <DependentUpon>LatestView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\LoginView.Designer.cs">
+      <DependentUpon>LoginView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\UserLoginView.cs">
       <SubType>Form</SubType>
@@ -72,8 +84,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\LatestView.resx">
       <DependentUpon>LatestView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LoginView.resx">
+      <DependentUpon>LoginView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserLoginView.resx">
       <DependentUpon>UserLoginView.cs</DependentUpon>

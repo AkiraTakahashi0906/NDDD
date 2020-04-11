@@ -31,7 +31,8 @@ namespace NDDD.Infrastructure
                 return new UserFake();
             }
 #endif
-            return new UserSqlServer();
+            return new UserFake();
+            //return new UserSqlServer();
         }
     }
 }

@@ -10,7 +10,7 @@ namespace NDDD.Infrastructure.Fake
 {
     internal sealed class UserFake : IUserRepository
     {
-        public UserEntity GetUserData()
+        public UserEntity GetUserData(int userId)
         {
             return  new UserEntity(
                         1,
