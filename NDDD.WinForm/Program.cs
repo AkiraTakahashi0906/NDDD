@@ -9,6 +9,11 @@ namespace NDDD.WinForm
 {
     static class Program
     {
+        //Log4Netのおまじない
+        private static log4net.ILog _logger =
+            log4net.LogManager.GetLogger(
+                System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         /// <summary>
         /// アプリケーションのメイン エントリ ポイントです。
         /// </summary>
@@ -17,6 +22,13 @@ namespace NDDD.WinForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            _logger.Debug("デバッグのログ");
+            _logger.Info("インフォのログ");
+            _logger.Warn("警告のログ");
+            _logger.Error("エラーのログ");
+            _logger.Fatal("致命的なログ");
+
             Application.Run(new LatestView());
             //Application.Run(new UserLoginView());
             //pplication.Run(new LoginView());
