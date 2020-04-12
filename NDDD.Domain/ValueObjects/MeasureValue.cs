@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NDDD.Domain.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,9 @@ namespace NDDD.Domain.ValueObjects
         //プロパティをゲットだけ（読み取り専用）
         public float Value { get; }
 
-        public string DisplayValue => Math.Round(Value, 2) + "℃";
+        //public string DisplayValue => Math.Round(Value, 2) + "℃";
+
+        public string DisplayValue => Value.RoundString(9) + "℃";
 
         protected override bool EqualsCore(MeasureValue other)
         {

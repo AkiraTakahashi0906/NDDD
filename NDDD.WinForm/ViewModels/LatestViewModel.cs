@@ -1,11 +1,14 @@
 ﻿using NDDD.Domain.Entities;
 using NDDD.Domain.Repositories;
+using NDDD.Domain.StaticValues;
+using NDDD.Domain.ValueObjects;
 using NDDD.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace NDDD.WinForm.ViewModels
 {
@@ -59,10 +62,27 @@ namespace NDDD.WinForm.ViewModels
 
         public void Search()
         {
-            var measure = _measureRepository.GetLatest();//具象クラスに飛ぶF12
+            //var measure = _measureRepository.GetLatest();//具象クラスに飛ぶF12
+
+            var measure = Measures.GetLatest(new AreaId(20));
+
             AreaIdText = measure.AreaId.DisplayValue;
             MeasureDateText = measure.MeasureDate.DisplayValue;
             MeasureValueText = measure.MeasureValue.DisplayValue;
+        }
+
+        public void Save()
+        {
+            //使う側がトランザクションかけたいところで囲む
+            using (var scope = new TransactionScope())
+            {
+                //ヘッダー
+                //明細
+                //在庫
+                //履歴
+                //顧客情報
+                scope.Complete();
+            }
         }
     }
 }

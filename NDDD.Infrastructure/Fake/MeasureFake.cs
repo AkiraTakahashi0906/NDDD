@@ -35,5 +35,29 @@ namespace NDDD.Infrastructure.Fake
                 //            );
             }
         }
+
+        public IReadOnlyList<MeasureEntity> GetLatests()
+        {
+            var result = new List<MeasureEntity>();
+            result.Add(
+                new MeasureEntity(
+                            10,
+                            Convert.ToDateTime("2012/12/12 12:34:56"),
+                            12.341f
+                            ));
+            result.Add(
+            new MeasureEntity(
+                20,
+                Convert.ToDateTime("2012/12/12 12:34:56"),
+                22.341f
+                ));
+            result.Add(
+            new MeasureEntity(
+                30,
+                Convert.ToDateTime("2012/12/12 12:34:56"),
+                32.341f
+                ));
+            return result;
+        }
     }
 }

@@ -4,6 +4,9 @@ using System.Data.SqlClient;
 
 //できるだけInfrastructure層はシンプルに
 //シンプルにとってきたデータをc#で加工したほうがバグりにくい
+
+//Infrastructure層ではいっさいのトランザクションはしない。使う側に管理させる（ViewModelでトランザクションを管理する)
+
 namespace NDDD.Infrastructure.SqlServer
 {
     internal static class SqlServerHelper
