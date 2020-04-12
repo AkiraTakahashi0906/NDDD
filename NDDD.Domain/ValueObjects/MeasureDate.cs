@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace NDDD.Domain.ValueObjects
 {
-    public sealed class AreaId:ValueObject<AreaId>
+    public sealed class MeasureDate : ValueObject<MeasureDate>
     {
         //完全コンストラクタパターン
         //コンストラクタで値設定後は値を変更できないクラス。
-        public AreaId(int value)
+        public MeasureDate(DateTime value)
         {
             Value = value;
         }
 
         //プロパティをゲットだけ（読み取り専用）
-        public int Value { get; }
+        public DateTime Value { get; }
 
-        public string DisplayValue => Value.ToString().PadLeft(4, '0');
+        public string DisplayValue => Value.ToString("yyyy/MM/dd HH:mm:ss");
 
-        protected override bool EqualsCore(AreaId other)
+        protected override bool EqualsCore(MeasureDate other)
         {
             return this.Value == other.Value;
         }

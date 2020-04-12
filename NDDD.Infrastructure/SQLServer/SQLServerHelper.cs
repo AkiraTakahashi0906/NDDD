@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
-
+//できるだけInfrastructure層はシンプルに
+//シンプルにとってきたデータをc#で加工したほうがバグりにくい
 namespace NDDD.Infrastructure.SqlServer
 {
     internal static class SqlServerHelper

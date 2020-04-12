@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace NDDD.Domain.ValueObjects
 {
-    public sealed class AreaId:ValueObject<AreaId>
+    public sealed class UserId : ValueObject<UserId>
     {
         //完全コンストラクタパターン
         //コンストラクタで値設定後は値を変更できないクラス。
-        public AreaId(int value)
+        public UserId(int value)
         {
             Value = value;
         }
@@ -20,7 +20,7 @@ namespace NDDD.Domain.ValueObjects
 
         public string DisplayValue => Value.ToString().PadLeft(4, '0');
 
-        protected override bool EqualsCore(AreaId other)
+        protected override bool EqualsCore(UserId other)
         {
             return this.Value == other.Value;
         }

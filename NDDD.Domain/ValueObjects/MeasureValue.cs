@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace NDDD.Domain.ValueObjects
 {
-    public sealed class AreaId:ValueObject<AreaId>
+    public sealed class MeasureValue : ValueObject<MeasureValue>
     {
         //完全コンストラクタパターン
         //コンストラクタで値設定後は値を変更できないクラス。
-        public AreaId(int value)
+        public MeasureValue(float value)
         {
             Value = value;
         }
 
         //プロパティをゲットだけ（読み取り専用）
-        public int Value { get; }
+        public float Value { get; }
 
-        public string DisplayValue => Value.ToString().PadLeft(4, '0');
+        public string DisplayValue => Math.Round(Value, 2) + "℃";
 
-        protected override bool EqualsCore(AreaId other)
+        protected override bool EqualsCore(MeasureValue other)
         {
             return this.Value == other.Value;
         }

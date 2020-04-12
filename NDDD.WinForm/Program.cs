@@ -17,9 +17,9 @@ namespace NDDD.WinForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new LatestView());
+            Application.Run(new LatestView());
             //Application.Run(new UserLoginView());
-            Application.Run(new LoginView());
+            //pplication.Run(new LoginView());
         }
     }
 }

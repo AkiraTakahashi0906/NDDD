@@ -1,5 +1,6 @@
 ﻿using NDDD.Domain;
 using NDDD.Domain.Entities;
+using NDDD.Domain.Exceptios;
 using NDDD.Domain.Repositories;
 using System;
 using System.Collections.Generic;
@@ -24,13 +25,14 @@ namespace NDDD.Infrastructure.Fake
                     Convert.ToSingle(value[2])
                     );
             }
-            catch
+            catch(Exception ex)
             {
-                return new MeasureEntity(
-                            10,
-                            Convert.ToDateTime("2012/12/12 12:34:56"),
-                            12.341f
-                            );
+                throw new FakeException("MeasureFakeの取得に失敗しました", ex);
+                //return new MeasureEntity(
+                //            10,
+                //            Convert.ToDateTime("2012/12/12 12:34:56"),
+                //            12.341f
+                //            );
             }
         }
     }

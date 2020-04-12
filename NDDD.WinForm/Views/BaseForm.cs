@@ -1,4 +1,5 @@
 ﻿using NDDD.Domain;
+using NDDD.Domain.Exceptios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +23,26 @@ namespace NDDD.WinForm.Views
 #endif
 
             UserIdLabel.Text = Shared.LoginId;
+        }
+        protected void ExceptionProc(Exception ex)
+        {
+            MessageBoxIcon icon = MessageBoxIcon.Error;
+            string caption = "エラー";
+            var exceptionBase = ex as ExceptionBase;//as 型を変換 変換できなかったらnullになる
+            if (exceptionBase != null)
+            {
+                if (exceptionBase.Kind == ExceptionBase.ExceptionKind.info)
+                {
+                    icon = MessageBoxIcon.Information;
+                    caption = "情報";
+                }
+                else if (exceptionBase.Kind == ExceptionBase.ExceptionKind.Warinng)
+                {
+                    icon = MessageBoxIcon.Warning;
+                    caption = "警告";
+                }
+            }
+            MessageBox.Show(ex.Message, caption, MessageBoxButtons.OK, icon);
         }
     }
 }

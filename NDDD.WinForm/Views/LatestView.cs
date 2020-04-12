@@ -1,4 +1,5 @@
-﻿using NDDD.Infrastructure;
+﻿using NDDD.Domain.Exceptios;
+using NDDD.Infrastructure;
 using NDDD.Infrastructure.Fake;
 using NDDD.WinForm.ViewModels;
 using System;
@@ -36,7 +37,14 @@ namespace NDDD.WinForm.Views
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            _viewModel.Search();
+            try
+            {
+                _viewModel.Search();
+            }
+            catch(Exception ex)
+            {
+                ExceptionProc(ex);
+            }
         }
     }
 }

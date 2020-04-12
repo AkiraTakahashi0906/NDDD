@@ -11,7 +11,8 @@ namespace NDDD.WinForm.ViewModels
 {
     public class LatestViewModel : ViewModelBase
     {
-        private IMeasureRepository _measureRepository;
+        //private IMeasureRepository _measureRepository;
+        private MeasureRepository _measureRepository;//具象クラス
 
         //プライベート変数は頭に_をつける
         private string _areaIdText = string.Empty;
@@ -27,7 +28,8 @@ namespace NDDD.WinForm.ViewModels
         //テストコードの場合はこちらが走る
         public LatestViewModel(IMeasureRepository measureRepository)
         {
-            _measureRepository = measureRepository;
+            //_measureRepository = measureRepository;
+            _measureRepository = new MeasureRepository(measureRepository);//具象クラス
         }
 
         public string AreaIdText
@@ -57,10 +59,10 @@ namespace NDDD.WinForm.ViewModels
 
         public void Search()
         {
-            var measure = _measureRepository.GetLatest();
-            AreaIdText = measure.AreaId.ToString().PadLeft(4, '0');
-            MeasureDateText = measure.MeasureDate.ToString("yyyy/MM/dd HH:mm:ss");
-            MeasureValueText = Math.Round(measure.MeasureValue, 2) + "℃";
+            var measure = _measureRepository.GetLatest();//具象クラスに飛ぶF12
+            AreaIdText = measure.AreaId.DisplayValue;
+            MeasureDateText = measure.MeasureDate.DisplayValue;
+            MeasureValueText = measure.MeasureValue.DisplayValue;
         }
     }
 }

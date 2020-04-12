@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+//DB列のすべてをValueObjectにする
 namespace NDDD.Domain.ValueObjects
 {
     public abstract class ValueObject<T> where T : ValueObject<T>

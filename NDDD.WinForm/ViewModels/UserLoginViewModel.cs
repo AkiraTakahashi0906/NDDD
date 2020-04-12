@@ -55,9 +55,9 @@ namespace NDDD.WinForm.ViewModels
         public void Search()
         {
             var user = _userRepository.GetUserData(1);
-            UserIdText= user.UserId.ToString().PadLeft(4, '0');
-            UserNameText= user.UserName.ToString();
-            UserLoginPasswordText= user.UserLoginPassword.ToString();
+            UserIdText = user.UserId.DisplayValue;
+            UserNameText = user.UserName.DisplayValue;
+            UserLoginPasswordText = user.UserLoginPassword.DisplayValue;
         }
     }
 }
