@@ -20,7 +20,8 @@ namespace NDDD.Infrastructure
                 return new MeasureFake();
             }
 #endif
-            return new MeasureSqlserver();
+            //return new MeasureSqlserver();
+            return new MeasureFake();
         }
 
         public static IUserRepository CreateUser()
@@ -31,8 +32,8 @@ namespace NDDD.Infrastructure
                 return new UserFake();
             }
 #endif
-            return new UserFake();
-            //return new UserSqlServer();
+            //return new UserFake();
+            return new UserSqlServer();
         }
     }
 }

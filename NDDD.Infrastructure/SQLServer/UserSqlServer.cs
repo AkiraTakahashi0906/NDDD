@@ -17,12 +17,12 @@ namespace NDDD.Infrastructure.SQLServer
         {
 
             string sql = @"
-select UserID,
+select Top 1 UserID,
     UserName,
+    Password
 from UserTable
 where UserID = @UserID
 order by UserID
-LIMIT 1
 ";
             UserEntity user = null;
             SqlServerHelper.Query(

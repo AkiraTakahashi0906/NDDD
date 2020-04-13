@@ -32,8 +32,8 @@ namespace NDDD.WinForm
 
             LatestTimer.Start();
 
-            Application.Run(new LatestView());
-            //Application.Run(new UserLoginView());
+            //Application.Run(new LatestView());
+            Application.Run(new UserLoginView());
             //pplication.Run(new LoginView());
         }
     }
