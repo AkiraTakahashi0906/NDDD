@@ -20,7 +20,7 @@ namespace NDDDTest.Tests.ViewModelTests
                 );
 
             var UserMock = new Mock<IUserRepository>();
-            UserMock.Setup(x => x.GetUserData()).Returns(entity);
+            UserMock.Setup(x => x.GetUserData(1)).Returns(entity);
 
             var vm = new UserLoginViewModel(UserMock.Object);
             //ユーザーID
