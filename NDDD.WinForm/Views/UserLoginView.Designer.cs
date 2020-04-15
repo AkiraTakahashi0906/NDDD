@@ -102,7 +102,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(503, 385);
+            this.ClientSize = new System.Drawing.Size(503, 358);
             this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.PassWordTextBox);
             this.Controls.Add(this.label3);

@@ -35,5 +35,10 @@ namespace NDDD.Infrastructure
             //return new UserFake();
             return new UserSqlServer();
         }
+
+        public static IUserRepository2 CreateUser2()
+        {
+            return new UserSqlServer2();
+        }
     }
 }

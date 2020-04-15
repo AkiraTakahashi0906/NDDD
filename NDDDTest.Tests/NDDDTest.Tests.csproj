@@ -69,6 +69,7 @@
     <Compile Include="ChainingAssertion.MSTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModelTests\LatestViewModelTest.cs" />
+    <Compile Include="ViewModelTests\LoginViewModelTest.cs" />
     <Compile Include="ViewModelTests\UserViewModelTest.cs" />
   </ItemGroup>
   <ItemGroup>

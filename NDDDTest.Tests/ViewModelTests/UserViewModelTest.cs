@@ -28,8 +28,8 @@ namespace NDDDTest.Tests.ViewModelTests
             //パスワード
             vm.Search();
             vm.UserIdText.Is("0001");
-            vm.UserNameText.Is("高橋彬");
-            vm.UserLoginPasswordText.Is("043527");
+            vm.UserNameText.Is("高橋彬さん");
+            vm.UserLoginPasswordText.Is("043527PW");
 
         }
     }

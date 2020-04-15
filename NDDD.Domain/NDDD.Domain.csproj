@@ -49,6 +49,7 @@
     <Compile Include="Entities\OrderEntity.cs" />
     <Compile Include="Entities\OrderItemEntity.cs" />
     <Compile Include="Entities\UserEntity.cs" />
+    <Compile Include="Entities\UserEntity2.cs" />
     <Compile Include="Exceptios\DataNotExistsException.cs" />
     <Compile Include="Exceptios\ExceptionBase.cs" />
     <Compile Include="Exceptios\FakeException.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Repositories\IMeasureRepository.cs" />
     <Compile Include="Repositories\IOderRepository.cs" />
     <Compile Include="Repositories\IUserRepository.cs" />
+    <Compile Include="Repositories\IUserRepository2.cs" />
     <Compile Include="Repositories\MeasureRepository.cs" />
     <Compile Include="Shared.cs" />
     <Compile Include="StaticValues\Measures.cs" />

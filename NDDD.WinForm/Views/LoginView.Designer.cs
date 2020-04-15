@@ -31,8 +31,8 @@
             this.LoginButton = new System.Windows.Forms.Button();
             this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.LoginTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.UsersComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // LoginButton
@@ -62,13 +62,6 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "パスワード";
             // 
-            // LoginTextBox
-            // 
-            this.LoginTextBox.Location = new System.Drawing.Point(160, 37);
-            this.LoginTextBox.Name = "LoginTextBox";
-            this.LoginTextBox.Size = new System.Drawing.Size(252, 31);
-            this.LoginTextBox.TabIndex = 8;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -78,23 +71,31 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "ログインID";
             // 
+            // UsersComboBox
+            // 
+            this.UsersComboBox.FormattingEnabled = true;
+            this.UsersComboBox.Location = new System.Drawing.Point(160, 37);
+            this.UsersComboBox.Name = "UsersComboBox";
+            this.UsersComboBox.Size = new System.Drawing.Size(252, 32);
+            this.UsersComboBox.TabIndex = 12;
+            // 
             // LoginView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(473, 297);
+            this.Controls.Add(this.UsersComboBox);
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.PasswordTextBox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.LoginTextBox);
             this.Controls.Add(this.label1);
             this.Name = "LoginView";
             this.Text = "LoginView";
             this.Controls.SetChildIndex(this.label1, 0);
-            this.Controls.SetChildIndex(this.LoginTextBox, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.PasswordTextBox, 0);
             this.Controls.SetChildIndex(this.LoginButton, 0);
+            this.Controls.SetChildIndex(this.UsersComboBox, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -105,7 +106,7 @@
         private System.Windows.Forms.Button LoginButton;
         private System.Windows.Forms.TextBox PasswordTextBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox LoginTextBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox UsersComboBox;
     }
 }

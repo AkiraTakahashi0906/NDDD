@@ -52,6 +52,7 @@
     <Compile Include="SQLServer\OrderSqlServer.cs" />
     <Compile Include="SQLServer\SQLServerHelper.cs" />
     <Compile Include="SQLServer\UserSqlServer.cs" />
+    <Compile Include="SQLServer\UserSqlServer2.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NDDD.Domain\NDDD.Domain.csproj">
