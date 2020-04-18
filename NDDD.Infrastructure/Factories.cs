@@ -1,5 +1,6 @@
 ﻿using NDDD.Domain;
 using NDDD.Domain.Repositories;
+using NDDD.Domain.ValueObjects;
 using NDDD.Infrastructure.Fake;
 using NDDD.Infrastructure.SQLServer;
 using System;
@@ -12,6 +13,20 @@ namespace NDDD.Infrastructure
 {
     public static class Factories
     {
+
+        public static IMaterialRepository CreateMaterial()
+        {
+#if DEBUG//デバッグモードのみ通る
+            if (Shared.IsFake)
+            {
+                return new MaterialFake();
+            }
+#endif
+            //return new MeasureSqlserver();
+            return new MaterialFake();
+        }
+
+
         public static IMeasureRepository CreateMeasure()
         {
 #if DEBUG//デバッグモードのみ通る

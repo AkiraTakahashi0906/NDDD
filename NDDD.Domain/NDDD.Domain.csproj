@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\MaterialEntity.cs" />
     <Compile Include="Entities\MeasureEntity.cs" />
     <Compile Include="Entities\OrderEntity.cs" />
     <Compile Include="Entities\OrderItemEntity.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="Modules\Helpers\FloatHelper.cs" />
     <Compile Include="Modules\Logics\MeasureAnalysis.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IMaterialRepository.cs" />
     <Compile Include="Repositories\IMeasureRepository.cs" />
     <Compile Include="Repositories\IOderRepository.cs" />
     <Compile Include="Repositories\IUserRepository.cs" />
@@ -64,6 +66,12 @@
     <Compile Include="Shared.cs" />
     <Compile Include="StaticValues\Measures.cs" />
     <Compile Include="ValueObjects\AreaId.cs" />
+    <Compile Include="ValueObjects\Barcode.cs" />
+    <Compile Include="ValueObjects\MaterialCode.cs" />
+    <Compile Include="ValueObjects\MaterialExpirationDate.cs" />
+    <Compile Include="ValueObjects\MaterialName.cs" />
+    <Compile Include="ValueObjects\MaterialQuantity.cs" />
+    <Compile Include="ValueObjects\MaterialUnit.cs" />
     <Compile Include="ValueObjects\MeasureDate.cs" />
     <Compile Include="ValueObjects\MeasureValue.cs" />
     <Compile Include="ValueObjects\Password.cs" />
