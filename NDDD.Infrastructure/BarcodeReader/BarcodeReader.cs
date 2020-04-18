@@ -15,15 +15,15 @@ namespace NDDD.Domain.Modules.Barcode
             ProvidedByCompanyItem,
             ProvidedBySelfDefenseForceItem
         }
-        private string _readText;
         public string Value { get; } = string.Empty;
-        public BarcodeType ValueType { get; } = 0;
+        public string ReadText { get; } = string.Empty;
+        public BarcodeType ValueType { get; } = BarcodeType.ErrorItem;
 
         public BarcodeReader(string readtext)
         {
-            _readText = readtext;
-            ValueType = CheckValueType(_readText);
-            Value = GetValue(_readText, ValueType);
+            ReadText = readtext;
+            ValueType = CheckValueType(ReadText);
+            Value = GetValue(ReadText, ValueType);
         }
 
         private BarcodeType CheckValueType(string readText)
