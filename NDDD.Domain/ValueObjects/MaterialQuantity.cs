@@ -14,6 +14,7 @@ namespace NDDD.Domain.ValueObjects
         }
 
         public float Value { get; }
+        public string DisplayValue => Convert.ToString(Value);
 
         protected override bool EqualsCore(MaterialQuantity other)
         {

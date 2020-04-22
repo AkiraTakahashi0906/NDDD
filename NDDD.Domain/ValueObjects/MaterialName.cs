@@ -14,6 +14,8 @@ namespace NDDD.Domain.ValueObjects
         }
         public string Value { get; }
 
+        public string DisplayValue => "名称:[" + Value + "]";
+
         protected override bool EqualsCore(MaterialName other)
         {
             return this.Value == other.Value;

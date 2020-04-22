@@ -24,12 +24,18 @@ namespace NDDDTest.Tests.ViewModelTests
                                     );
 
             var readBarcode = new Barcode("AAAA");
-            var vm = new MaterialStoringViewModel();
             var MaterialMock = new Mock<IMaterialRepository>();
             MaterialMock.Setup(x => x.GetMaterial(readBarcode)).Returns(entity);
+            var viewModelMock = new Mock<MaterialStoringViewModel>(MaterialMock.Object);
 
-            vm.MaterialSearch(readBarcode, MaterialMock.Object);
-            vm.BarcodeReadText.Is("AAAA");
+
+            var viewModel = viewModelMock.Object;
+            viewModel.BarcodeReadText = "AAAA";
+
+            viewModel.MaterialSearch();
+            viewModel.BarcodeReadText.Is("AAAA");
+            viewModel.MaterialCodeText.Is("MC:[05005050505044]");
+            viewModel.MaterialNameText.Is("名称:[1775B2]");
         }
     }
 }

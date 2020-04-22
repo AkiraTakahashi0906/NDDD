@@ -18,18 +18,19 @@ namespace NDDD.WinForm.ViewModels
         private string _materialQuantityText = string.Empty;
         private string _materialUnitText = string.Empty;
         private string _materialExpirationDateText = string.Empty;
-        public MaterialStoringViewModel()
-        {
 
-        }
-        public string BarcodeReadText
+
+        public MaterialStoringViewModel():this(Factories.CreateMaterial())
         {
-            get { return _barcodeReadText; }
-            set
-            {
-                SetProperty(ref _barcodeReadText, value);
-            }
         }
+
+        public MaterialStoringViewModel(IMaterialRepository materialRepository)
+        {
+            _materialRepository = materialRepository;
+        }
+
+
+        public string BarcodeReadText { get; set; } = string.Empty;
 
         public string MaterialCodeText
         {
@@ -76,22 +77,14 @@ namespace NDDD.WinForm.ViewModels
             }
         }
 
-        //本番コード
-        public void MaterialSearch(Barcode key)
+        public void MaterialSearch()
         {
-            var material = Factories.CreateMaterial();
-            var materialEntity = material.GetMaterial(key);
-            BarcodeReadText = materialEntity.BarcodeReadText.DisplayValue;
+            var readBarcode = new Barcode(BarcodeReadText);
+            var materialEntity = _materialRepository.GetMaterial(readBarcode);
+            MaterialCodeText = materialEntity.MaterialCode.DisplayValue;
+            MaterialNameText = materialEntity.MaterialName.DisplayValue;
+            MaterialQuantityText = materialEntity.MaterialQuantity.DisplayValue;
         }
-
-        //テストコードテストコード
-        public void MaterialSearch(Barcode key,IMaterialRepository materialRepository)
-        {
-            _materialRepository = materialRepository;
-            var materialEntity = _materialRepository.GetMaterial(key);
-            BarcodeReadText = materialEntity.BarcodeReadText.DisplayValue;
-        }
-
 
     }
 }
