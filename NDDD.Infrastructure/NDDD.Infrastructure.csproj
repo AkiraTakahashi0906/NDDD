@@ -50,6 +50,7 @@
     <Compile Include="Fake\MeasureFake.cs" />
     <Compile Include="Fake\UserFake.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQLServer\MaterialSqlServer.cs" />
     <Compile Include="SQLServer\MeasureSqlserver.cs" />
     <Compile Include="SQLServer\OrderSqlServer.cs" />
     <Compile Include="SQLServer\SQLServerHelper.cs" />
