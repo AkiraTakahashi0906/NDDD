@@ -1,4 +1,5 @@
 ﻿using NDDD.Domain.Entities;
+using NDDD.Domain.Exceptios;
 using NDDD.Domain.Repositories;
 using NDDD.Domain.ValueObjects;
 using NDDD.Infrastructure.SqlServer;
@@ -16,26 +17,33 @@ namespace NDDD.Infrastructure.SQLServer
         public MaterialEntity GetMaterial(Barcode barcode)
         {
             string sql = @"
-select Top 1 UserID,
-    UserName,
-    Password
-from UserTable
-where UserID = @UserID
-order by UserID
+select MaterialManagementCode,
+    MaterialCode,
+    MaterialName,
+    MaterialUnitName,
+    MaterialQuantity,
+    MaterialExpirationDate
+from MaterialTable
+where MaterialManagementCode = @MMC
 ";
             MaterialEntity user = null;
             SqlServerHelper.Query(
                 sql,
-                new List<SqlParameter> { new SqlParameter("@UserID", barcode.Value) }.ToArray(),
+                new List<SqlParameter> { new SqlParameter("@MMC", barcode.Value) }.ToArray(),
                                     reader =>
                                     {
-                                        user = new MaterialEntity(Convert.ToString(reader["UserID"]),
-                                                                Convert.ToString(reader["UserName"]),
-                                                                Convert.ToString(reader["UserName"]),
-                                                                Convert.ToInt32(reader["UserName"]),
-                                                                Convert.ToString(reader["UserName"]),
-                                                                Convert.ToDateTime(reader["Password"]));
+                                        user = new MaterialEntity(Convert.ToString(reader["MaterialManagementCode"]),
+                                                                Convert.ToString(reader["MaterialCode"]),
+                                                                Convert.ToString(reader["MaterialName"]),
+                                                                Convert.ToSingle(reader["MaterialQuantity"]),
+                                                                Convert.ToString(reader["MaterialUnitName"]),
+                                                                Convert.ToDateTime(reader["MaterialExpirationDate"]));
                                     });
+
+            if (user == null)
+            {
+                throw new DataNotExistsException();
+            }
             return user;
         }
 

@@ -1,4 +1,5 @@
-﻿using NDDD.Domain.Repositories;
+﻿using NDDD.Domain.Modules.Helpers;
+using NDDD.Domain.Repositories;
 using NDDD.Domain.ValueObjects;
 using NDDD.Infrastructure;
 using System;
@@ -6,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace NDDD.WinForm.ViewModels
 {
@@ -80,10 +82,19 @@ namespace NDDD.WinForm.ViewModels
         public void MaterialSearch()
         {
             var readBarcode = new Barcode(BarcodeReadText);
-            var materialEntity = _materialRepository.GetMaterial(readBarcode);
-            MaterialCodeText = materialEntity.MaterialCode.DisplayValue;
-            MaterialNameText = materialEntity.MaterialName.DisplayValue;
-            MaterialQuantityText = materialEntity.MaterialQuantity.DisplayValue;
+
+            try
+            {
+                Guard.IsStringEmpty(BarcodeReadText, "バーコード読み取りエラー");
+                var materialEntity = _materialRepository.GetMaterial(readBarcode);
+                MaterialCodeText = materialEntity.MaterialCode.DisplayValue;
+                MaterialNameText = materialEntity.MaterialName.DisplayValue;
+                MaterialQuantityText = materialEntity.MaterialQuantity.DisplayValue;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
     }

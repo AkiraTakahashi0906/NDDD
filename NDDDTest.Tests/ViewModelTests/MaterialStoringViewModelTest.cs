@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using NDDD.Domain.Entities;
+using NDDD.Domain.Exceptios;
 using NDDD.Domain.Repositories;
 using NDDD.Domain.ValueObjects;
 using NDDD.WinForm.ViewModels;
@@ -32,7 +33,14 @@ namespace NDDDTest.Tests.ViewModelTests
             var viewModel = viewModelMock.Object;
             viewModel.BarcodeReadText = "AAAA";
 
+
+            var ex = AssertEx.Throws<Exception>(() => viewModel.MaterialSearch());
+            ex.Message.Is("エリアを選択してください");
+
             viewModel.MaterialSearch();
+
+
+
             viewModel.BarcodeReadText.Is("AAAA");
             viewModel.MaterialCodeText.Is("MC:[05005050505044]");
             viewModel.MaterialNameText.Is("名称:[1775B2]");

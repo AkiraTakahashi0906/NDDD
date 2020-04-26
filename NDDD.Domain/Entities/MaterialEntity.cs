@@ -9,14 +9,15 @@ namespace NDDD.Domain.Entities
 {
     public sealed class MaterialEntity
     {
-        public MaterialEntity(string barcodeReadText,
+        public MaterialEntity(
+                                      string materialManagementCode,
                                       string materialCode,
                                       string materialName,
                                       float materialQuantity,
                                       string materialUnit,
                                       DateTime materialExpirationDate)
         {
-            BarcodeReadText = new Barcode(barcodeReadText);
+            MaterialManagementCode = new MaterialManagementCode(materialManagementCode);
             MaterialCode = new MaterialCode(materialCode);
             MaterialName = new MaterialName(materialName);
             MaterialQuantity = new MaterialQuantity(materialQuantity);
@@ -24,7 +25,7 @@ namespace NDDD.Domain.Entities
             MaterialExpirationDate = new MaterialExpirationDate(materialExpirationDate);//SL
         }
 
-        public Barcode BarcodeReadText { get; }
+        public MaterialManagementCode MaterialManagementCode { get; }
         public MaterialCode MaterialCode { get; }
         public MaterialName MaterialName { get; }
         public MaterialQuantity MaterialQuantity { get; }

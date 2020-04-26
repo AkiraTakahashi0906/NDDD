@@ -37,7 +37,7 @@
             // 
             this.BarcodeReadTextBox.Location = new System.Drawing.Point(25, 31);
             this.BarcodeReadTextBox.Name = "BarcodeReadTextBox";
-            this.BarcodeReadTextBox.Size = new System.Drawing.Size(252, 31);
+            this.BarcodeReadTextBox.Size = new System.Drawing.Size(461, 31);
             this.BarcodeReadTextBox.TabIndex = 6;
             // 
             // MaterialCodeTextBox
@@ -45,7 +45,7 @@
             this.MaterialCodeTextBox.Location = new System.Drawing.Point(25, 90);
             this.MaterialCodeTextBox.Name = "MaterialCodeTextBox";
             this.MaterialCodeTextBox.ReadOnly = true;
-            this.MaterialCodeTextBox.Size = new System.Drawing.Size(252, 31);
+            this.MaterialCodeTextBox.Size = new System.Drawing.Size(461, 31);
             this.MaterialCodeTextBox.TabIndex = 9;
             // 
             // SearchButton
@@ -62,7 +62,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(315, 349);
+            this.ClientSize = new System.Drawing.Size(512, 349);
             this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.MaterialCodeTextBox);
             this.Controls.Add(this.BarcodeReadTextBox);

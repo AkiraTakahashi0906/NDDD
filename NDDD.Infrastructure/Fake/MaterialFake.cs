@@ -14,7 +14,7 @@ namespace NDDD.Infrastructure.Fake
         public MaterialEntity GetMaterial(Barcode barcode)
         {
             return  new MaterialEntity(
-                        "AAAA2",
+                        "AAAA",
                         "050050505050442",
                         "1775B22",
                         1.5f,

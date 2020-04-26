@@ -54,7 +54,9 @@
     <Compile Include="Exceptios\DataNotExistsException.cs" />
     <Compile Include="Exceptios\ExceptionBase.cs" />
     <Compile Include="Exceptios\FakeException.cs" />
+    <Compile Include="Exceptios\InputException.cs" />
     <Compile Include="Modules\Helpers\FloatHelper.cs" />
+    <Compile Include="Modules\Helpers\Guard.cs" />
     <Compile Include="Modules\Logics\MeasureAnalysis.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IMaterialRepository.cs" />
@@ -69,6 +71,7 @@
     <Compile Include="ValueObjects\Barcode.cs" />
     <Compile Include="ValueObjects\MaterialCode.cs" />
     <Compile Include="ValueObjects\MaterialExpirationDate.cs" />
+    <Compile Include="ValueObjects\MaterialManagementCode.cs" />
     <Compile Include="ValueObjects\MaterialName.cs" />
     <Compile Include="ValueObjects\MaterialQuantity.cs" />
     <Compile Include="ValueObjects\MaterialUnit.cs" />
