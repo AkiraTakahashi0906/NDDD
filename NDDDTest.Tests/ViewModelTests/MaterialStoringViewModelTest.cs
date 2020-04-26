@@ -27,19 +27,19 @@ namespace NDDDTest.Tests.ViewModelTests
             var readBarcode = new Barcode("AAAA");
             var MaterialMock = new Mock<IMaterialRepository>();
             MaterialMock.Setup(x => x.GetMaterial(readBarcode)).Returns(entity);
+
             var viewModelMock = new Mock<MaterialStoringViewModel>(MaterialMock.Object);
 
-
             var viewModel = viewModelMock.Object;
+            viewModel.BarcodeReadText = "";
+
+            //viewModel.MaterialSearch();
+
+            var ex = AssertEx.Throws<InputException>(() => viewModel.MaterialSearch());
+            ex.Message.Is("バーコード空白エラー");
             viewModel.BarcodeReadText = "AAAA";
 
-
-            var ex = AssertEx.Throws<Exception>(() => viewModel.MaterialSearch());
-            ex.Message.Is("エリアを選択してください");
-
             viewModel.MaterialSearch();
-
-
 
             viewModel.BarcodeReadText.Is("AAAA");
             viewModel.MaterialCodeText.Is("MC:[05005050505044]");

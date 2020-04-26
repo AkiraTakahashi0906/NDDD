@@ -23,7 +23,14 @@ namespace NDDD.WinForm.Views
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            _viewModel.MaterialSearch();
+            try
+            {
+                _viewModel.MaterialSearch();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
