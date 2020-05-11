@@ -70,6 +70,7 @@
     <Compile Include="ValueObjects\AreaId.cs" />
     <Compile Include="ValueObjects\Barcode.cs" />
     <Compile Include="ValueObjects\MaterialCode.cs" />
+    <Compile Include="ValueObjects\MaterialDeliveryPlace.cs" />
     <Compile Include="ValueObjects\MaterialExpirationDate.cs" />
     <Compile Include="ValueObjects\MaterialManagementCode.cs" />
     <Compile Include="ValueObjects\MaterialName.cs" />

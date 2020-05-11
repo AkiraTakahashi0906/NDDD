@@ -9,19 +9,21 @@ namespace NDDD.Domain.Modules.Helpers
 {
     public static class Guard
     {
-        public static void IsNull(object o, string message)
+        public static object IsNull(object o, string message)
         {
             if (o == null)
             {
                 throw new InputException(message);
             }
+            return o;
         }
-        public static void IsStringEmpty(string o, string message)
+        public static string IsStringEmpty(string o, string message)
         {
             if (o == String.Empty)
             {
                 throw new InputException(message);
             }
+            return o;
         }
         public static float IsFloat(string text, string message)
         {

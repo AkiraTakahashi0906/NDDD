@@ -14,6 +14,11 @@ namespace NDDD.Infrastructure.SQLServer
 {
     internal sealed class MaterialSqlServer : IMaterialRepository
     {
+        public void DeliveryRecordSave(MaterialEntity material)
+        {
+            throw new NotImplementedException();
+        }
+
         public MaterialEntity GetMaterial(Barcode barcode)
         {
             string sql = @"
@@ -51,5 +56,6 @@ where MaterialManagementCode = @MMC
         {
             throw new NotImplementedException();
         }
+
     }
 }

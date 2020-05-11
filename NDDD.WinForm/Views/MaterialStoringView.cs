@@ -19,6 +19,7 @@ namespace NDDD.WinForm.Views
             InitializeComponent();
             BarcodeReadTextBox.DataBindings.Add("Text", _viewModel, nameof(_viewModel.BarcodeReadText));
             MaterialCodeTextBox.DataBindings.Add("Text", _viewModel, nameof(_viewModel.MaterialCodeText));
+            DeliveryRecordTextBox.DataBindings.Add("Text", _viewModel, nameof(_viewModel.DeliveryRecordText));
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
@@ -26,6 +27,18 @@ namespace NDDD.WinForm.Views
             try
             {
                 _viewModel.MaterialSearch();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _viewModel.DeliveryRecordSave();
             }
             catch (Exception ex)
             {

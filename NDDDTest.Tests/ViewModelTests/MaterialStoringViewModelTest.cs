@@ -26,6 +26,7 @@ namespace NDDDTest.Tests.ViewModelTests
 
             var readBarcode = new Barcode("AAAA");
             var MaterialMock = new Mock<IMaterialRepository>();
+
             MaterialMock.Setup(x => x.GetMaterial(readBarcode)).Returns(entity);
 
             var viewModelMock = new Mock<MaterialStoringViewModel>(MaterialMock.Object);
@@ -33,17 +34,32 @@ namespace NDDDTest.Tests.ViewModelTests
             var viewModel = viewModelMock.Object;
             viewModel.BarcodeReadText = "";
 
-            //viewModel.MaterialSearch();
-
             var ex = AssertEx.Throws<InputException>(() => viewModel.MaterialSearch());
-            ex.Message.Is("バーコード空白エラー");
+            ex.Message.Is("材料バーコード空白エラー");
             viewModel.BarcodeReadText = "AAAA";
 
-            viewModel.MaterialSearch();
+            ex = AssertEx.Throws<InputException>(() => viewModel.DeliveryRecordSave());
+            ex.Message.Is("配送先バーコード空白エラー"); //材料データが見つかりません。
 
+            viewModel.DeliveryRecordText = "BOX-1234";
+
+            ex = AssertEx.Throws<InputException>(() => viewModel.DeliveryRecordSave());
+            ex.Message.Is("材料データが見つかりません。"); 
+
+            viewModel.MaterialSearch();
             viewModel.BarcodeReadText.Is("AAAA");
             viewModel.MaterialCodeText.Is("MC:[05005050505044]");
             viewModel.MaterialNameText.Is("名称:[1775B2]");
+
+            MaterialMock.Setup(x => x.DeliveryRecordSave(It.IsAny<MaterialEntity>())).
+                Callback<MaterialEntity>(saveValue =>
+                {
+                    saveValue.MaterialManagementCode.Value.Is("AAAA");
+                });
+
+            viewModel.DeliveryRecordSave();
+
+            MaterialMock.VerifyAll();
         }
     }
 }

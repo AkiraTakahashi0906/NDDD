@@ -12,5 +12,6 @@ namespace NDDD.Domain.Repositories
     {
         MaterialEntity GetMaterial(Barcode barcode);
         IReadOnlyList<MaterialEntity> GetMaterials();
+        void DeliveryRecordSave(MaterialEntity material);
     }
 }

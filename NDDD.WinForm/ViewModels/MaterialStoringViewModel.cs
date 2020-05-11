@@ -1,4 +1,5 @@
-﻿using NDDD.Domain.Modules.Helpers;
+﻿using NDDD.Domain.Entities;
+using NDDD.Domain.Modules.Helpers;
 using NDDD.Domain.Repositories;
 using NDDD.Domain.ValueObjects;
 using NDDD.Infrastructure;
@@ -20,6 +21,8 @@ namespace NDDD.WinForm.ViewModels
         private string _materialQuantityText = string.Empty;
         private string _materialUnitText = string.Empty;
         private string _materialExpirationDateText = string.Empty;
+        private string _DeliveryRecordText = string.Empty;
+        private MaterialEntity _materialEntity;
 
         public MaterialStoringViewModel():this(Factories.CreateMaterial())
         {
@@ -29,7 +32,6 @@ namespace NDDD.WinForm.ViewModels
         {
             _materialRepository = materialRepository;
         }
-
 
         public string BarcodeReadText { get; set; } = string.Empty;
 
@@ -78,14 +80,30 @@ namespace NDDD.WinForm.ViewModels
             }
         }
 
+
+        public string DeliveryRecordText
+        {
+            get { return _DeliveryRecordText; }
+            set
+            {
+                SetProperty(ref _DeliveryRecordText, value);
+            }
+        }
+
         public void MaterialSearch()
         {
-            var readBarcode = new Barcode(BarcodeReadText);
-            Guard.IsStringEmpty(BarcodeReadText, "バーコード空白エラー");
-            var materialEntity = _materialRepository.GetMaterial(readBarcode);
-            MaterialCodeText = materialEntity.MaterialCode.DisplayValue;
-            MaterialNameText = materialEntity.MaterialName.DisplayValue;
-            MaterialQuantityText = materialEntity.MaterialQuantity.DisplayValue;
+            var readBarcode = new Barcode(Guard.IsStringEmpty(BarcodeReadText, "材料バーコード空白エラー"));
+            _materialEntity = _materialRepository.GetMaterial(readBarcode);
+            MaterialCodeText = _materialEntity.MaterialCode.DisplayValue;
+            MaterialNameText = _materialEntity.MaterialName.DisplayValue;
+            MaterialQuantityText = _materialEntity.MaterialQuantity.DisplayValue;
+        }
+
+        public void DeliveryRecordSave()
+        {
+            Guard.IsStringEmpty(DeliveryRecordText, "配送先バーコード空白エラー");
+            //var entity= new MaterialEntity
+            _materialRepository.DeliveryRecordSave((MaterialEntity)Guard.IsNull(_materialEntity,"材料データが見つかりません。"));
         }
 
     }
