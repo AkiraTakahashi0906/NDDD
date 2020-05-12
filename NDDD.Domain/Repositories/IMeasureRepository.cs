@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 //外部接触部はインターフェース越しにリポジトリ経由でとってくる
 namespace NDDD.Domain.Repositories
 {

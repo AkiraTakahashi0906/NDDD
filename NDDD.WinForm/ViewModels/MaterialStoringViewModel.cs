@@ -15,6 +15,7 @@ namespace NDDD.WinForm.ViewModels
     public class MaterialStoringViewModel : ViewModelBase
     {
         private IMaterialRepository _materialRepository;
+        private IMaterialReceiptRepository _materialReceiptRepository;
         private string _barcodeReadText = string.Empty;
         private string _materialCodeText = string.Empty;
         private string _materialNameText = string.Empty;
@@ -23,14 +24,17 @@ namespace NDDD.WinForm.ViewModels
         private string _materialExpirationDateText = string.Empty;
         private string _DeliveryRecordText = string.Empty;
         private MaterialEntity _materialEntity;
+        private MaterialReceiptEntity _materialReceiptEntity;
 
-        public MaterialStoringViewModel():this(Factories.CreateMaterial())
+        public MaterialStoringViewModel():this(Factories.CreateMaterial(),Factories.CreateMaterialDelivery())
         {
         }
 
-        public MaterialStoringViewModel(IMaterialRepository materialRepository)
+        public MaterialStoringViewModel(IMaterialRepository materialRepository, 
+                                                       IMaterialReceiptRepository materialReceiptRepository)
         {
             _materialRepository = materialRepository;
+            _materialReceiptRepository = materialReceiptRepository;
         }
 
         public string BarcodeReadText { get; set; } = string.Empty;
@@ -102,8 +106,14 @@ namespace NDDD.WinForm.ViewModels
         public void DeliveryRecordSave()
         {
             Guard.IsStringEmpty(DeliveryRecordText, "配送先バーコード空白エラー");
-            //var entity= new MaterialEntity
-            _materialRepository.DeliveryRecordSave((MaterialEntity)Guard.IsNull(_materialEntity,"材料データが見つかりません。"));
+            var materialEntity = (MaterialEntity)Guard.IsNull(_materialEntity, "材料データが見つかりません。");
+            DateTime dt = DateTime.Now;
+
+            _materialReceiptEntity = new MaterialReceiptEntity(materialEntity.MaterialManagementCode,
+                                                                               dt,
+                                                                               DeliveryRecordText);
+
+            _materialReceiptRepository.DeliveryRecordSave(_materialReceiptEntity);
         }
 
     }

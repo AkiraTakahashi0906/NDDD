@@ -11,10 +11,6 @@ namespace NDDD.Infrastructure.Fake
 {
     internal sealed class MaterialFake : IMaterialRepository
     {
-        public void DeliveryRecordSave(MaterialEntity material)
-        {
-            throw new NotImplementedException();
-        }
 
         public MaterialEntity GetMaterial(Barcode barcode)
         {
