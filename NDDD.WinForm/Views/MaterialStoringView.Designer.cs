@@ -37,10 +37,11 @@
             // 
             // BarcodeReadTextBox
             // 
-            this.BarcodeReadTextBox.Location = new System.Drawing.Point(25, 31);
+            this.BarcodeReadTextBox.Location = new System.Drawing.Point(25, 28);
             this.BarcodeReadTextBox.Name = "BarcodeReadTextBox";
             this.BarcodeReadTextBox.Size = new System.Drawing.Size(461, 31);
             this.BarcodeReadTextBox.TabIndex = 6;
+            this.BarcodeReadTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BarcodeReadTextBox_KeyDown);
             // 
             // MaterialCodeTextBox
             // 

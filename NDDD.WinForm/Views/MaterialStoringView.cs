@@ -45,5 +45,20 @@ namespace NDDD.WinForm.Views
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void BarcodeReadTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                try
+                {
+                    _viewModel.MaterialSearch();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
     }
 }
