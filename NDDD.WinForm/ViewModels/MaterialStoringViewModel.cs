@@ -27,7 +27,7 @@ namespace NDDD.WinForm.ViewModels
         private MaterialEntity _materialEntity;
         private MaterialReceiptEntity _materialReceiptEntity;
 
-        public MaterialStoringViewModel():this(Factories.CreateMaterial(),Factories.CreateMaterialDelivery())
+        public MaterialStoringViewModel():this(Factories.CreateMaterial(),Factories.CreateMaterialReceipt())
         {
         }
 

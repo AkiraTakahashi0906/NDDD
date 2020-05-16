@@ -31,7 +31,9 @@ namespace NDDD.WinForm.Views
         private void LoginButton_Click(object sender, EventArgs e)
         {
             //Shared.LoginId = LoginTextBox.Text;
-            using(var f = new MaterialStoringView())
+
+            //using(var f = new MaterialStoringView())
+            using (var f = new MaterialListView())
             {
                 f.ShowDialog();
             }

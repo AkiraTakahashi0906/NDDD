@@ -10,5 +10,6 @@ namespace NDDD.Domain.Repositories
     public interface IMaterialReceiptRepository
     {
         void DeliveryRecordSave(MaterialReceiptEntity material);
+        IReadOnlyList<MaterialReceiptEntity> GetData();
     }
 }

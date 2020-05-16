@@ -25,12 +25,6 @@ namespace NDDDTest.Tests.ViewModelTests
                                     Convert.ToDateTime("2012/12/12 12:34:56")
                                     );
 
-            //var deliveryEntity = new MaterialReceiptEntity(
-            //            "AAAA",
-            //            Convert.ToDateTime("2012/12/12 12:34:56"),
-            //            "BOX-1234"
-            //            );
-
             var readBarcode = new Barcode("AAAA");
             var MaterialMock = new Mock<IMaterialRepository>();
             var MaterialReceiptMock = new Mock<IMaterialReceiptRepository>();

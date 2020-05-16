@@ -72,6 +72,7 @@
     <Compile Include="ViewModelTests\LatestViewModelTest.cs" />
     <Compile Include="ViewModelTests\LoginViewModelTest.cs" />
     <Compile Include="ViewModelTests\MaterialStoringViewModelTest.cs" />
+    <Compile Include="ViewModelTests\MaterialListViewModelTest.cs" />
     <Compile Include="ViewModelTests\UserViewModelTest.cs" />
   </ItemGroup>
   <ItemGroup>

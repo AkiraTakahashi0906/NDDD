@@ -14,16 +14,16 @@ namespace NDDD.Infrastructure
     public static class Factories
     {
 
-        public static IMaterialReceiptRepository CreateMaterialDelivery()
+        public static IMaterialReceiptRepository CreateMaterialReceipt()
         {
 #if DEBUG//デバッグモードのみ通る
             if (Shared.IsFake)
             {
-                return new MaterialDeliveryFake();
+                return new MaterialReceiptFake();
             }
 #endif
             //return new MaterialSqlServer();
-            return new MaterialDeliveryFake();
+            return new MaterialReceiptFake();
         }
 
         public static IMaterialRepository CreateMaterial()

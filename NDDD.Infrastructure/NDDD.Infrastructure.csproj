@@ -46,7 +46,7 @@
   <ItemGroup>
     <Compile Include="BarcodeReader\BarcodeReader.cs" />
     <Compile Include="Factories.cs" />
-    <Compile Include="Fake\MaterialDeliveryFake.cs" />
+    <Compile Include="Fake\MaterialReceiptFake.cs" />
     <Compile Include="Fake\MaterialFake.cs" />
     <Compile Include="Fake\MeasureFake.cs" />
     <Compile Include="Fake\UserFake.cs" />
