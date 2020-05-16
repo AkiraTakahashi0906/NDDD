@@ -1,4 +1,5 @@
 ﻿using NDDD.Domain.Entities;
+using NDDD.Domain.Modules.EntityMapper;
 using NDDD.Domain.Modules.Helpers;
 using NDDD.Domain.Repositories;
 using NDDD.Domain.ValueObjects;
@@ -112,6 +113,8 @@ namespace NDDD.WinForm.ViewModels
             _materialReceiptEntity = new MaterialReceiptEntity(materialEntity.MaterialManagementCode,
                                                                                dt,
                                                                                DeliveryRecordText);
+
+            _materialReceiptEntity=MaterialReceiptEntityMappaer.Mapping(materialEntity, _materialReceiptEntity);
 
             _materialReceiptRepository.DeliveryRecordSave(_materialReceiptEntity);
         }
