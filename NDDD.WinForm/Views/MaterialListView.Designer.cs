@@ -42,6 +42,7 @@
             this.MaterialDataGrid.RowTemplate.Height = 33;
             this.MaterialDataGrid.Size = new System.Drawing.Size(1216, 794);
             this.MaterialDataGrid.TabIndex = 0;
+            this.MaterialDataGrid.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.MaterialDataGrid_DataBindingComplete);
             // 
             // MaterialListView
             // 

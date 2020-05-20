@@ -18,7 +18,11 @@ namespace NDDD.WinForm.Views
         {
             InitializeComponent();
             MaterialDataGrid.DataBindings.Add("DataSource", _viewModel, nameof(_viewModel.MaterialReceipts));
-            //MaterialDataGrid.Columns[1].HeaderText = "test";
+        }
+
+        private void MaterialDataGrid_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            MaterialDataGrid.Columns[1].HeaderText = "test";
         }
     }
 }
